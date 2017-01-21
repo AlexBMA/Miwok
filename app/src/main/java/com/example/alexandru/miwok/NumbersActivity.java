@@ -17,6 +17,11 @@ package com.example.alexandru.miwok;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -27,17 +32,37 @@ public class NumbersActivity extends AppCompatActivity {
 
 
         // Code here
-        String englishWords[] = new String[10];
-        englishWords[0] = "one";
-        englishWords[1] = "two";
-        englishWords[2] = "tree";
-        englishWords[3] = "four";
-        englishWords[4] = "five";
-        englishWords[5] = "six";
-        englishWords[6] = "seven";
-        englishWords[7] = "eight";
-        englishWords[8] = "nine";
-        englishWords[9] = "ten";
+        List<String> englishWords = new ArrayList<>();
+        englishWords = createEndglishWords(englishWords);
+        displayEnlishWords(englishWords);
+
+    }
+
+    private List<String> createEndglishWords(List<String> list) {
+        list.add("one");
+        list.add("two");
+        list.add("tree");
+        list.add("four");
+        list.add("five");
+        list.add("six");
+        list.add("seven");
+        list.add("eight");
+        list.add("nine");
+        list.add("ten");
+
+        return list;
+    }
+
+    public void displayEnlishWords(List<String> list) {
+
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.root_view);
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            TextView textView = new TextView(this);
+            textView.setText(list.get(i));
+            linearLayout.addView(textView);
+        }
+
 
     }
 }
