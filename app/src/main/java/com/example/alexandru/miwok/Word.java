@@ -15,13 +15,13 @@ public class Word {
     }
 
 
-    public Word(String mMiwakTranslation, String mEnglishTranslation) {
+    public Word(String mEnglishTranslation, String mMiwakTranslation) {
         this.mMiwakTranslation = mMiwakTranslation;
         this.mEnglishTranslation = mEnglishTranslation;
         this.mIdImage = NO_IMAGE_PROVIDED;
     }
 
-    public Word(String mMiwakTranslation, String mEnglishTranslation, int mIdImage) {
+    public Word(String mEnglishTranslation, String mMiwakTranslation, int mIdImage) {
         this.mMiwakTranslation = mMiwakTranslation;
         this.mEnglishTranslation = mEnglishTranslation;
         this.mIdImage = mIdImage;

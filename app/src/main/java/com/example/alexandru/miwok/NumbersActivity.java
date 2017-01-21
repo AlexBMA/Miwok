@@ -61,9 +61,15 @@ public class NumbersActivity extends AppCompatActivity {
 
     public void displayEnglishWordListAdapter(List<Word> list) {
 
-        WordAdapter itemsAdapter = new WordAdapter(this, list);
+        WordAdapter itemsAdapter = new WordAdapter(this, list, R.color.category_numbers);
 
         ListView listView = (ListView) findViewById(R.id.list);
+
+
+        // get the color id
+        //  int id = ResourcesCompat.getColor(getResources(), R.color.category_numbers, null);
+        // set the color
+        // listView.setBackgroundColor(id);
 
         listView.setAdapter(itemsAdapter);
     }
