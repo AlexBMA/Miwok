@@ -39,20 +39,18 @@ public class NumbersActivity extends AppCompatActivity {
 
     }
 
-    private List<Word> createEnglishMiwokWords(List<Word> list) {
-        list.add(new Word("lutti", "one"));
-        list.add(new Word("otiiko", "two"));
-        list.add(new Word("tolookosu", "tree"));
-        list.add(new Word("oyyisa", "four"));
-        list.add(new Word("massokka", "five"));
-        list.add(new Word("temmokka", "six"));
-        list.add(new Word("kenekaku", "seven"));
-        list.add(new Word("kawinta", "eight"));
-        list.add(new Word("wo'e", "nine"));
-        list.add(new Word("na'aacha", "ten"));
-
-
-        return list;
+    private List<Word> createEnglishMiwokWords(List<Word> words) {
+        words.add(new Word("one", "lutti", R.drawable.number_one));
+        words.add(new Word("two", "otiiko", R.drawable.number_two));
+        words.add(new Word("three", "tolookosu", R.drawable.number_three));
+        words.add(new Word("four", "oyyisa", R.drawable.number_four));
+        words.add(new Word("five", "massokka", R.drawable.number_five));
+        words.add(new Word("six", "temmokka", R.drawable.number_six));
+        words.add(new Word("seven", "kenekaku", R.drawable.number_seven));
+        words.add(new Word("eight", "kawinta", R.drawable.number_eight));
+        words.add(new Word("nine", "wo’e", R.drawable.number_nine));
+        words.add(new Word("ten", "na’aacha", R.drawable.number_ten));
+        return words;
     }
 
     /**
@@ -69,8 +67,6 @@ public class NumbersActivity extends AppCompatActivity {
 
         listView.setAdapter(itemsAdapter);
     }
-
-
 
 
 }

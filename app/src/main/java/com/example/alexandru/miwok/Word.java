@@ -17,6 +17,7 @@ public class Word {
     public Word(String mMiwakTranslation, String mEnglishTranslation) {
         this.mMiwakTranslation = mMiwakTranslation;
         this.mEnglishTranslation = mEnglishTranslation;
+        this.mIdImage = 0;
     }
 
     public Word(String mMiwakTranslation, String mEnglishTranslation, int mIdImage) {
