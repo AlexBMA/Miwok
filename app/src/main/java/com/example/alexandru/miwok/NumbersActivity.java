@@ -17,7 +17,6 @@ package com.example.alexandru.miwok;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -32,24 +31,26 @@ public class NumbersActivity extends AppCompatActivity {
 
 
         // Code here
-        List<String> englishWords = new ArrayList<>();
-        englishWords = createEnglishWords(englishWords);
+        List<Word> words = new ArrayList<>();
+
+        words = createEnglishWords(words);
         //displayEnglishWords(englishWords);
-        displayEnglishWordListAdapter(englishWords);
+        displayEnglishWordListAdapter(words);
 
     }
 
-    private List<String> createEnglishWords(List<String> list) {
-        list.add("one");
-        list.add("two");
-        list.add("tree");
-        list.add("four");
-        list.add("five");
-        list.add("six");
-        list.add("seven");
-        list.add("eight");
-        list.add("nine");
-        list.add("ten");
+    private List<Word> createEnglishWords(List<Word> list) {
+        list.add(new Word("lutti", "one"));
+        list.add(new Word("otiiko", "two"));
+        list.add(new Word("tolookosu", "tree"));
+        list.add(new Word("oyyisa", "four"));
+        list.add(new Word("massokka", "five"));
+        list.add(new Word("temmokka", "six"));
+        list.add(new Word("kenekaku", "seven"));
+        list.add(new Word("kawinta", "eight"));
+        list.add(new Word("wo'e", "nine"));
+        list.add(new Word("na'aacha", "ten"));
+
 
         return list;
     }
@@ -60,9 +61,10 @@ public class NumbersActivity extends AppCompatActivity {
      * @param list
      */
 
-    public void displayEnglishWordListAdapter(List<String> list) {
+    public void displayEnglishWordListAdapter(List<Word> list) {
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        WordAdapter itemsAdapter = new WordAdapter(this, list);
+
         ListView listView = (ListView) findViewById(R.id.list);
 
         listView.setAdapter(itemsAdapter);
