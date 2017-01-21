@@ -53,13 +53,23 @@ public class NumbersActivity extends AppCompatActivity {
         return list;
     }
 
+    /**
+     * Displays the list in TextViews on the screen
+     *
+     * @param list
+     */
+
     public void displayEnlishWords(List<String> list) {
 
+        // Get the Linear Layout
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.root_view);
         int size = list.size();
         for (int i = 0; i < size; i++) {
+            // Create TextView
             TextView textView = new TextView(this);
+            // set text in the textView
             textView.setText(list.get(i));
+            // add the TextView to the
             linearLayout.addView(textView);
         }
 
