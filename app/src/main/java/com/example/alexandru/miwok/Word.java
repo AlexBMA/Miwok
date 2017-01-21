@@ -8,13 +8,21 @@ public class Word {
 
     private String mMiwakTranslation;
     private String mEnglishTranslation;
+    private int mIdImage;
 
     public Word() {
     }
 
+
     public Word(String mMiwakTranslation, String mEnglishTranslation) {
         this.mMiwakTranslation = mMiwakTranslation;
         this.mEnglishTranslation = mEnglishTranslation;
+    }
+
+    public Word(String mMiwakTranslation, String mEnglishTranslation, int mIdImage) {
+        this.mMiwakTranslation = mMiwakTranslation;
+        this.mEnglishTranslation = mEnglishTranslation;
+        this.mIdImage = mIdImage;
     }
 
     public String getmMiwakTranslation() {
@@ -31,5 +39,13 @@ public class Word {
 
     public void setmEnglishTranslation(String mEnglishTranslation) {
         this.mEnglishTranslation = mEnglishTranslation;
+    }
+
+    public int getmIdImage() {
+        return mIdImage;
+    }
+
+    public void setmIdImage(int mIdImage) {
+        this.mIdImage = mIdImage;
     }
 }
