@@ -17,8 +17,8 @@ package com.example.alexandru.miwok;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +33,13 @@ public class NumbersActivity extends AppCompatActivity {
 
         // Code here
         List<String> englishWords = new ArrayList<>();
-        englishWords = createEndglishWords(englishWords);
-        displayEnlishWords(englishWords);
+        englishWords = createEnglishWords(englishWords);
+        //displayEnglishWords(englishWords);
+        displayEnglishWordListAdapter(englishWords);
 
     }
 
-    private List<String> createEndglishWords(List<String> list) {
+    private List<String> createEnglishWords(List<String> list) {
         list.add("one");
         list.add("two");
         list.add("tree");
@@ -54,25 +55,20 @@ public class NumbersActivity extends AppCompatActivity {
     }
 
     /**
-     * Displays the list in TextViews on the screen
+     * Displays the list  on the screen
      *
      * @param list
      */
 
-    public void displayEnlishWords(List<String> list) {
+    public void displayEnglishWordListAdapter(List<String> list) {
 
-        // Get the Linear Layout
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.root_view);
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            // Create TextView
-            TextView textView = new TextView(this);
-            // set text in the textView
-            textView.setText(list.get(i));
-            // add the TextView to the
-            linearLayout.addView(textView);
-        }
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        ListView listView = (ListView) findViewById(R.id.list);
 
-
+        listView.setAdapter(itemsAdapter);
     }
+
+
+
+
 }
