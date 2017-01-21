@@ -15,8 +15,8 @@
  */
 package com.example.alexandru.miwok;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class NumbersActivity extends AppCompatActivity {
 
@@ -24,5 +24,20 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
+
+
+        // Code here
+        String englishWords[] = new String[10];
+        englishWords[0] = "one";
+        englishWords[1] = "two";
+        englishWords[2] = "tree";
+        englishWords[3] = "four";
+        englishWords[4] = "five";
+        englishWords[5] = "six";
+        englishWords[6] = "seven";
+        englishWords[7] = "eight";
+        englishWords[8] = "nine";
+        englishWords[9] = "ten";
+
     }
 }
