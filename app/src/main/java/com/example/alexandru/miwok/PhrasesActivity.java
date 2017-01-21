@@ -15,14 +15,56 @@
  */
 package com.example.alexandru.miwok;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PhrasesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phrases);
+        setContentView(R.layout.word_list);
+
+        // Code here
+        List<Word> words = new ArrayList<>();
+
+        words = createEnglishWords(words);
+        //displayEnglishWords(englishWords);
+        displayEnglishWordListAdapter(words);
+    }
+
+    private List<Word> createEnglishWords(List<Word> list) {
+
+        list.add(new Word("Where are you going?", "minto wuksus"));
+        list.add(new Word("What is your name?", "tinnә oyaase'nә"));
+        list.add(new Word("My name is...", "oyaaset..."));
+        list.add(new Word("How are you feeling?", "michәksәs?"));
+        list.add(new Word("I’m feeling good.", "kuchi achit"));
+        list.add(new Word("Are you coming?", "әәnәs'aa?"));
+        list.add(new Word("Yes, I’m coming.", "hәә’ әәnәm"));
+        list.add(new Word("I’m coming.", "әәnәm"));
+        list.add(new Word("Let’s go.", "yoowutis"));
+        list.add(new Word("Come here.", "әnni'nem"));
+
+        return list;
+    }
+
+    /**
+     * Displays the list  on the screen
+     *
+     * @param list
+     */
+
+    public void displayEnglishWordListAdapter(List<Word> list) {
+
+        WordAdapter itemsAdapter = new WordAdapter(this, list);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(itemsAdapter);
     }
 }

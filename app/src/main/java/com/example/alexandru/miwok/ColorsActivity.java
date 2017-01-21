@@ -15,14 +15,55 @@
  */
 package com.example.alexandru.miwok;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ColorsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_colors);
+        setContentView(R.layout.word_list);
+
+        // Code here
+        List<Word> words = new ArrayList<>();
+
+        words = createEnglishWords(words);
+        //displayEnglishWords(englishWords);
+        displayEnglishWordListAdapter(words);
+    }
+
+    private List<Word> createEnglishWords(List<Word> list) {
+
+        list.add(new Word("red", "weṭeṭṭi"));
+        list.add(new Word("mustard yellow", "chiwiiṭә"));
+        list.add(new Word("dusty yellow", "ṭopiisә"));
+        list.add(new Word("green", "chokokki"));
+        list.add(new Word("brown", "ṭakaakki"));
+        list.add(new Word("gray", "ṭopoppi"));
+        list.add(new Word("black", "kululli"));
+        list.add(new Word("white", "kelelli"));
+
+
+        return list;
+    }
+
+    /**
+     * Displays the list  on the screen
+     *
+     * @param list
+     */
+
+    public void displayEnglishWordListAdapter(List<Word> list) {
+
+        WordAdapter itemsAdapter = new WordAdapter(this, list);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(itemsAdapter);
     }
 }
