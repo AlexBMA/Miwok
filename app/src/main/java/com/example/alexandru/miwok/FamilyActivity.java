@@ -32,12 +32,12 @@ public class FamilyActivity extends AppCompatActivity {
         // Code here
         List<Word> words = new ArrayList<>();
 
-        words = createEnglishWords(words);
+        words = createEnglishMiwokWords(words);
         //displayEnglishWords(englishWords);
         displayEnglishWordListAdapter(words);
     }
 
-    private List<Word> createEnglishWords(List<Word> list) {
+    private List<Word> createEnglishMiwokWords(List<Word> list) {
 
 
         list.add(new Word("father", "әpә"));

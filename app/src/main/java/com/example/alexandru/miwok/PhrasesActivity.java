@@ -32,12 +32,12 @@ public class PhrasesActivity extends AppCompatActivity {
         // Code here
         List<Word> words = new ArrayList<>();
 
-        words = createEnglishWords(words);
+        words = createEnglishMiwokWords(words);
         //displayEnglishWords(englishWords);
         displayEnglishWordListAdapter(words);
     }
 
-    private List<Word> createEnglishWords(List<Word> list) {
+    private List<Word> createEnglishMiwokWords(List<Word> list) {
 
         list.add(new Word("Where are you going?", "minto wuksus"));
         list.add(new Word("What is your name?", "tinnә oyaase'nә"));
