@@ -6,6 +6,7 @@ package com.example.alexandru.miwok;
 
 public class Word {
 
+    private static final int NO_IMAGE_PROVIDED = -1;
     private String mMiwakTranslation;
     private String mEnglishTranslation;
     private int mIdImage;
@@ -17,13 +18,18 @@ public class Word {
     public Word(String mMiwakTranslation, String mEnglishTranslation) {
         this.mMiwakTranslation = mMiwakTranslation;
         this.mEnglishTranslation = mEnglishTranslation;
-        this.mIdImage = 0;
+        this.mIdImage = NO_IMAGE_PROVIDED;
     }
 
     public Word(String mMiwakTranslation, String mEnglishTranslation, int mIdImage) {
         this.mMiwakTranslation = mMiwakTranslation;
         this.mEnglishTranslation = mEnglishTranslation;
         this.mIdImage = mIdImage;
+    }
+
+    public boolean hasImage() {
+        if (this.mIdImage == NO_IMAGE_PROVIDED) return false;
+        else return true;
     }
 
     public String getmMiwakTranslation() {
