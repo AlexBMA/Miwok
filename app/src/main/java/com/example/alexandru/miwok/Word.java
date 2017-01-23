@@ -74,4 +74,14 @@ public class Word {
     public void setmIdSound(int mIdSound) {
         this.mIdSound = mIdSound;
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mMiwakTranslation='" + mMiwakTranslation + '\'' +
+                ", mEnglishTranslation='" + mEnglishTranslation + '\'' +
+                ", mIdImage=" + mIdImage +
+                ", mIdSound=" + mIdSound +
+                '}';
+    }
 }
