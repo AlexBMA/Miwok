@@ -1,7 +1,6 @@
 package com.example.alexandru.miwok;
 
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -45,7 +44,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         // Get the {@link Word} object located at this position in the list
-        final Word currentWord = getItem(position);
+        Word currentWord = getItem(position);
 
         // Find the ImageView in the list_item.xml layout with the ID version_name
         ImageView miwokImage = (ImageView) listItemView.findViewById(R.id.img);
@@ -81,18 +80,6 @@ public class WordAdapter extends ArrayAdapter<Word> {
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
         // Set the background color of the text container View
         textContainer.setBackgroundColor(color);
-
-        //Set the onclick event for the
-        textContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //create the media player
-                MediaPlayer mediaPlayer = MediaPlayer.create(getContext(), currentWord.getmIdSound());
-                mediaPlayer.start();
-            }
-        });
-
-
 
 
         return listItemView;

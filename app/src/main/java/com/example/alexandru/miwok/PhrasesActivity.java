@@ -15,14 +15,19 @@
  */
 package com.example.alexandru.miwok;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PhrasesActivity extends AppCompatActivity {
+
+    private MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,17 +64,24 @@ public class PhrasesActivity extends AppCompatActivity {
      * @param list
      */
 
-    public void displayEnglishWordListAdapter(List<Word> list) {
+    public void displayEnglishWordListAdapter(final List<Word> list) {
 
         WordAdapter itemsAdapter = new WordAdapter(this, list, R.color.category_phrases);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
 
-        // get the color id
-        // int id = ResourcesCompat.getColor(getResources(), R.color.category_phrases, null);
-        // set the color
-        //listView.setBackgroundColor(id);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                Word word = list.get(position);
+
+                mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getmIdSound());
+                mMediaPlayer.start();
+            }
+        });
 
         listView.setAdapter(itemsAdapter);
     }
