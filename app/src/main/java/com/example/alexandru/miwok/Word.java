@@ -7,9 +7,11 @@ package com.example.alexandru.miwok;
 public class Word {
 
     private static final int NO_IMAGE_PROVIDED = -1;
+    private static final int NO_SOUND_PROVIDED = -1;
     private String mMiwakTranslation;
     private String mEnglishTranslation;
     private int mIdImage;
+    private int mIdSound;
 
     public Word() {
     }
@@ -19,12 +21,21 @@ public class Word {
         this.mMiwakTranslation = mMiwakTranslation;
         this.mEnglishTranslation = mEnglishTranslation;
         this.mIdImage = NO_IMAGE_PROVIDED;
+        this.mIdSound = NO_SOUND_PROVIDED;
     }
 
     public Word(String mEnglishTranslation, String mMiwakTranslation, int mIdImage) {
         this.mMiwakTranslation = mMiwakTranslation;
         this.mEnglishTranslation = mEnglishTranslation;
         this.mIdImage = mIdImage;
+        this.mIdSound = NO_SOUND_PROVIDED;
+    }
+
+    public Word(String mMiwakTranslation, String mEnglishTranslation, int mIdImage, int mIdSound) {
+        this.mMiwakTranslation = mMiwakTranslation;
+        this.mEnglishTranslation = mEnglishTranslation;
+        this.mIdImage = mIdImage;
+        this.mIdSound = mIdSound;
     }
 
     public boolean hasImage() {
@@ -54,5 +65,13 @@ public class Word {
 
     public void setmIdImage(int mIdImage) {
         this.mIdImage = mIdImage;
+    }
+
+    public int getmIdSound() {
+        return mIdSound;
+    }
+
+    public void setmIdSound(int mIdSound) {
+        this.mIdSound = mIdSound;
     }
 }
