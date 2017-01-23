@@ -46,12 +46,18 @@ public class ColorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
-        // Code here
+        // Create world list
         List<Word> words = new ArrayList<>();
 
         words = createEnglishMiwokWords(words);
         //displayEnglishWords(englishWords);
         displayEnglishWordListAdapter(words);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
     }
 
     private List<Word> createEnglishMiwokWords(List<Word> words) {
@@ -85,11 +91,18 @@ public class ColorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+
+                // Release the media player if it currently exists because we are about to
+                // play a different sound file
                 releaseMediaPlayer();
+                // Get the {@link Word} object at the given position the user clicked on
                 Word word = list.get(position);
 
                 mMediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getmIdSound());
+                // Start the audio file
                 mMediaPlayer.start();
+                // Setup a listener on the media player, so that we can stop and release the
+                // media player once the sound has finished playing.
                 mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });

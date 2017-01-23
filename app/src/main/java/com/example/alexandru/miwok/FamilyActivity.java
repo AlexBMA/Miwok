@@ -54,6 +54,12 @@ public class FamilyActivity extends AppCompatActivity {
         displayEnglishWordListAdapter(words);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
     private List<Word> createEnglishMiwokWords(List<Word> words) {
 
         words.add(new Word("father", "әpә", R.drawable.family_father, R.raw.family_father));

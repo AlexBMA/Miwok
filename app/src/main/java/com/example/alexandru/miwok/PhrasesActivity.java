@@ -54,6 +54,12 @@ public class PhrasesActivity extends AppCompatActivity {
         displayEnglishWordListAdapter(words);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
     private List<Word> createEnglishMiwokWords(List<Word> list) {
 
         list.add(new Word("Where are you going?", "minto wuksus", -1, R.raw.phrase_where_are_you_going));

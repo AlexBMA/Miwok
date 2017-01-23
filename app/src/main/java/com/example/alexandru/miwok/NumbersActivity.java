@@ -56,6 +56,12 @@ public class NumbersActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
     private List<Word> createEnglishMiwokWords(List<Word> words) {
         words.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
         words.add(new Word("two", "otiiko", R.drawable.number_two, R.raw.number_two));
