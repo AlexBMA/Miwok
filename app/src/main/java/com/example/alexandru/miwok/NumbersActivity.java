@@ -81,6 +81,9 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
 
+        //get the audio manager
+        mAudioManager = (AudioManager) NumbersActivity.this.getSystemService(Context.AUDIO_SERVICE);
+
 
         // Code here
         List<Word> words = new ArrayList<>();
@@ -131,8 +134,6 @@ public class NumbersActivity extends AppCompatActivity {
                 releaseMediaPlayer();
                 Word word = list.get(position);
 
-                //get the audio manager
-                mAudioManager = (AudioManager) NumbersActivity.this.getSystemService(Context.AUDIO_SERVICE);
 
                 // get the focus state
                 int result = mAudioManager.requestAudioFocus(afChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
